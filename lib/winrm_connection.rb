@@ -62,7 +62,7 @@ class WINRM
       unless opts[:winrm_ssl_ca_store]
         transport_opts[:user] = opts[:winrm_user]
         transport_opts[:pass] = opts[:winrm_password]
-        inst = WinRM::WinRMWebService.new(endpoint, :plaintext, transport_opts)
+        inst = WinRM::WinRMWebService.new(endpoint, :plaintext, :user => transport_opts[:user], :pass => transport_opts[:pass], :basic_auth_only => true)
       else
         transport_opts[:user] = opts[:winrm_user]
         transport_opts[:pass] = opts[:winrm_password]
